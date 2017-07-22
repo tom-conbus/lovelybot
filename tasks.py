@@ -10,7 +10,8 @@ def echo_response(message):
         if "bitcoin" in message["text"]:
 
             r = requests.get("https://api.korbit.co.kr/v1/ticker")
-            bitcoin_price = r.jason()["last"]
+            bitcoin_price = r.json()["last"]
             msg = "bitcoin price is %s" % bitcoin_price
             print(msg)
-            ReplyToActivity(fill=message, text=msg).send()
+            ReplyToActivity(fill=message,
+                            text=msg).send()
